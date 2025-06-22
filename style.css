@@ -1,5 +1,9 @@
 body{
     background-color: rgb(194, 216, 233);
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+    display:flex;
 }
 #body{
     display:flex;
