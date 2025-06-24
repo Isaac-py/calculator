@@ -47,7 +47,7 @@ buttons.addEventListener('click', (event) => {
             if (result) {
                 firstNumber += result
             } else {
-                screen.textContent = 'Put number first!'
+                screen.textContent = 'Put first number!'
                 return;
             }
         }
@@ -76,6 +76,7 @@ buttons.addEventListener('click', (event) => {
         screen.textContent = '';
         isDotPressedForFirst = false;
         isDotPressedForSecond = false;
+        result=''
     } else if (value === 'Del') {
         if (!isSecondNumber) {
             if (firstNumber.slice(-1) === '.') {

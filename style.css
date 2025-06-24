@@ -44,7 +44,21 @@ button{
     border-radius: 30px;
     font-size: medium;
 }
+button:hover {
+    background-color: lightblue;
+}
 #github-page{
     width: 145px;
     height: 52.4px;
+    background-color: #674ea7;
+    color: white;
+}
+.number {
+    background-color: #d9ead3;
+}
+.operation {
+    background-color: #c9daf8;
+}
+.clearance {
+    background-color: #fbbc04;
 }
