@@ -2,16 +2,19 @@ let firstNumber = '';
 let secondNumber = '';
 let operator = '';
 let isSecondNumber = false;
+let result; 
 
 const screen = document.getElementById('screen-text');
 const buttons = document.getElementById('buttons');
 
-buttons.addEventListener('click', (e) => {
-    const value = e.target.textContent;
+buttons.addEventListener('click', (event) => {
+    const value = event.target.textContent;
 
-    if (e.target.tagName !== 'BUTTON') return;
+    if (event.target.tagName !== 'BUTTON') {//If anything was clicked besides button element it returns, for example <a> tag.
+        return;
+    }
 
-    if (!isNaN(value) || value === '.') {
+    if (!isNaN(value) || value === '.') {//checks if the value is a number or a '.'
         if (!isSecondNumber) {
             firstNumber += value;
             screen.textContent = firstNumber;
@@ -20,16 +23,26 @@ buttons.addEventListener('click', (e) => {
             screen.textContent = secondNumber;
         }
     } else if (['+', '-', '*', '/'].includes(value)) {
-        if (firstNumber === '') return;
+        if (firstNumber === '') {
+            if (result) {
+                firstNumber += result
+            } else {
+                screen.textContent = 'Error: Please provide number first!'
+                return;
+            }
+        }
         operator = value;
         isSecondNumber = true;
         screen.textContent = '';
     } else if (value === '=') {
-        if (firstNumber === '' || secondNumber === '' || operator === '') return;
-        const result = operate(parseFloat(firstNumber), parseFloat(secondNumber), operator);
+        if (firstNumber === '' || secondNumber === '' || operator === '') {
+            screen.textContent = 'Error: Please provide numbers and operation first!'
+            return;
+        }
+        result = operate(parseFloat(firstNumber), parseFloat(secondNumber), operator);
         screen.textContent = result;
         
-        firstNumber = result.toString();
+        firstNumber = '';
         secondNumber = '';
         operator = '';
         isSecondNumber = false;
