@@ -2,7 +2,7 @@ body{
     background-color: rgb(194, 216, 233);
     justify-content: space-evenly;
     align-items: center;
-    height: 100vh;
+    height: 95vh;
     display:flex;
 }
 #body{
@@ -13,11 +13,20 @@ body{
     background-color: white;
     align-items: center;
     justify-content: space-evenly;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
 }
 #screen{
-    width:300px;
-    height:60px;
+    width:295px;
+    height:55px;
     background-color: darkgray;
+    border-radius: 10px;
+    padding: 5px;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
 }
 #buttons{
     width:352px;
@@ -32,6 +41,8 @@ button{
     box-sizing: border-box;
     margin: 0%;
     padding: 0%;
+    border-radius: 30px;
+    font-size: medium;
 }
 #github-page{
     width: 145px;

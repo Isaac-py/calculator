@@ -18,9 +18,17 @@ buttons.addEventListener('click', (event) => {
 
     if (!isNaN(value)) {//checks if the value is a number
         if (!isSecondNumber) {
+            if (firstNumber.length >= 9) {
+                screen.textContent = "Max digits: 9";
+                return;
+            }
             firstNumber += value;
             screen.textContent = firstNumber;
         } else {
+            if (secondNumber.length >= 9) {
+                screen.textContent = "Max digits: 9";
+                return;
+            }
             secondNumber += value;
             screen.textContent = secondNumber;
         }
@@ -39,7 +47,7 @@ buttons.addEventListener('click', (event) => {
             if (result) {
                 firstNumber += result
             } else {
-                screen.textContent = 'Error: Please provide number first!'
+                screen.textContent = 'Put number first!'
                 return;
             }
         }
@@ -48,7 +56,7 @@ buttons.addEventListener('click', (event) => {
         screen.textContent = '';
     } else if (value === '=') {
         if (firstNumber === '' || secondNumber === '' || operator === '') {
-            screen.textContent = 'Error: Please provide numbers and operation first!'
+            screen.textContent = 'Put numbers first!'
             return;
         }
         result = operate(parseFloat(firstNumber), parseFloat(secondNumber), operator);
