@@ -52,6 +52,10 @@ button:hover {
     height: 52.4px;
     background-color: #674ea7;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
 }
 .number {
     background-color: #d9ead3;
@@ -61,4 +65,15 @@ button:hover {
 }
 .clearance {
     background-color: #fbbc04;
+}
+
+.github-logo {
+  max-width: 28px;
+  max-height: 28px;
+  color: var(--font);
+  transition: transform 0.3s ease-in-out;
+}
+
+.github-logo:hover {
+  transform: rotate(360deg) scale(1.2);
 }
