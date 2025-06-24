@@ -1,6 +1,8 @@
 let firstNumber = '';
 let secondNumber = '';
 let operator = '';
+let isDotPressedForFirst = false;
+let isDotPressedForSecond = false;
 let isSecondNumber = false;
 let result; 
 
@@ -14,13 +16,23 @@ buttons.addEventListener('click', (event) => {
         return;
     }
 
-    if (!isNaN(value) || value === '.') {//checks if the value is a number or a '.'
+    if (!isNaN(value)) {//checks if the value is a number
         if (!isSecondNumber) {
             firstNumber += value;
             screen.textContent = firstNumber;
         } else {
             secondNumber += value;
             screen.textContent = secondNumber;
+        }
+    } else if (value === '.') {
+        if (!isSecondNumber && !isDotPressedForFirst) {
+            firstNumber += value;
+            screen.textContent = firstNumber;
+            isDotPressedForFirst = true;
+        } else if (isSecondNumber && !isDotPressedForSecond) {
+            secondNumber += value;
+            screen.textContent = secondNumber;
+            isDotPressedForSecond = true;
         }
     } else if (['+', '-', '*', '/'].includes(value)) {
         if (firstNumber === '') {
@@ -45,6 +57,8 @@ buttons.addEventListener('click', (event) => {
         firstNumber = '';
         secondNumber = '';
         operator = '';
+        isDotPressedForFirst = false;
+        isDotPressedForSecond = false;
         isSecondNumber = false;
     } else if (value === 'C') {
         firstNumber = '';
@@ -52,11 +66,19 @@ buttons.addEventListener('click', (event) => {
         operator = '';
         isSecondNumber = false;
         screen.textContent = '';
+        isDotPressedForFirst = false;
+        isDotPressedForSecond = false;
     } else if (value === 'Del') {
         if (!isSecondNumber) {
+            if (firstNumber.slice(-1) === '.') {
+                isDotPressedForFirst = false;
+            }
             firstNumber = firstNumber.slice(0, -1);
             screen.textContent = firstNumber;
         } else {
+            if (secondNumber.slice(-1) === '.') {
+                isDotPressedForSecond = false;
+            }
             secondNumber = secondNumber.slice(0, -1);
             screen.textContent = secondNumber;
         }
