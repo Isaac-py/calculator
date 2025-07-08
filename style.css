@@ -77,3 +77,6 @@ button:hover {
 .github-logo:hover {
   transform: rotate(360deg) scale(1.2);
 }
+a{
+    text-decoration: none;
+}
